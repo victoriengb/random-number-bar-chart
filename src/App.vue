@@ -4,6 +4,15 @@
 // import { onMounted, ref } from "vue";
 
 import BarChart from "./components/BarChart.vue"
+import ButtonTrigger from './components/ButtonTrigger.vue'
+
+import {ref} from "vue"
+
+import {collectRandomNumbersCallAPI} from "./services/getRandomNumbers"
+import {countNumberOfOccurences} from "./core/count-number-occurences"
+  
+  
+
 
 /*************************************************** */
 
@@ -35,11 +44,13 @@ import BarChart from "./components/BarChart.vue"
 
 <template>
     <div>
-      <h1>SSZZSSZ</h1>
+      <h1>Histogram</h1>
       <!-- <p>{{ dataYAxisNombreOccurences }}</p>
       <p>{{ dataXAxisNumbers }}</p> -->
 
-      <BarChart />
+      <!--
+        -->
+        <BarChart />
     </div>
 </template>
 

@@ -13,6 +13,8 @@ import { collectRandomNumbersCallAPI } from "../services/getRandomNumbers";
 import { countNumberOfOccurences } from "../core/count-number-occurences"
 import { computed, onBeforeMount, ref } from "vue";
 
+import ButtonTrigger from "./ButtonTrigger.vue"
+
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 /****************************************************
  * 
@@ -51,18 +53,6 @@ console.log('dataXAxisNumbers', dataXAxisNumbers)
  * 
  * 
  *********************************************************/
-    // const data = ref()
-    // data.value = {
-    //   labels : dataXAxisNumbers,
-    //   datasets : [{data : dataYAxisNombreOccurences}]
-    // }
-    
-    // const options = ref()
-    // options.value = {
-    //   responsive: true
-    // }
-
-    /******************************** TEST **************************** */
     console.log('dataYAxisNombreOccurences.value', dataYAxisNombreOccurences.value)
 
     const data = computed(() => {
@@ -81,7 +71,20 @@ console.log('dataXAxisNumbers', dataXAxisNumbers)
          ]
       }
     })
-    
+  
+/*********************************** */
+let toggle = ref(false)
+
+async function triggerAction() {
+    toggle.value = !toggle.value
+    dataYAxisNombreOccurences.value = countNumberOfOccurences(await collectRandomNumbersCallAPI())
+
+    setTimeout(() => {
+      toggle.value = !toggle.value
+
+    }, 1000)
+}
+
 </script>
 
 <template>
@@ -89,5 +92,7 @@ console.log('dataXAxisNumbers', dataXAxisNumbers)
     <p>{{ dataYAxisNombreOccurences }}</p>
     <!-- <Bar :data="data.value" :options="options.value" /> -->
     <Bar :data="data"/>
+
+    <ButtonTrigger :buttonName="'Generate Random Numbers'" :text="'Loading Random Numbers'" :toggle="toggle" @click="triggerAction"/>
     
 </template>
