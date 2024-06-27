@@ -2,16 +2,19 @@
 
     <div v-if="toggle">
       <div v-show="loading" class="lds-ellipsis">
+          <!-- <div v-bind:style="[spinnerStyle]">.</div>
           <div v-bind:style="[spinnerStyle]">.</div>
-          <div v-bind:style="[spinnerStyle]">.</div>
-          <div v-bind:style="[spinnerStyle]">.</div>
+          <div v-bind:style="[spinnerStyle]">.</div> -->
+          <div>.</div>
+          <div>.</div>
+          <div>.</div> 
       </div>
         <div>{{text}}</div>
     </div>
 </template>
 
-<script setup>
-    const props = defineProps({
+<script setup lang="ts">
+    defineProps({
         loading: {
               type: Boolean,
               default: true,

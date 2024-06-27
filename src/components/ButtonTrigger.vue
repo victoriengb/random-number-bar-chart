@@ -1,5 +1,4 @@
 <template>
-
     <div>
       <button>{{ buttonName }}</button>
     
@@ -7,10 +6,10 @@
     </div>
 </template>
   
-<script setup>
+<script setup lang="ts">
     import EllipsisLoader from './EllipsisLoader.vue'
   
-    const props = defineProps({
+    defineProps({
       text: {
         type: String,
         default: 'Loading',

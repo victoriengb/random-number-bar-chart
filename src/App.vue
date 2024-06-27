@@ -4,14 +4,6 @@
 // import { onMounted, ref } from "vue";
 
 import BarChart from "./components/BarChart.vue"
-import ButtonTrigger from './components/ButtonTrigger.vue'
-
-import {ref} from "vue"
-
-import {collectRandomNumbersCallAPI} from "./services/getRandomNumbers"
-import {countNumberOfOccurences} from "./core/count-number-occurences"
-  
-  
 
 
 /*************************************************** */
